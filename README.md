@@ -26,6 +26,12 @@ import '@mohsin-mi/iconpicker/lib/iconpicker.css';
     'fa-dollar-sign',
     ],
     };
+```    
+# Alternatively, you can import some pre-defined Icons from the package. 
+
+```jsx
+    
+    import icons from '@mohsin-mi/iconpicker/lib/icons.js';
 
     <IconPicker
     icons={icons}

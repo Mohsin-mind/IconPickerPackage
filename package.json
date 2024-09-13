@@ -1,14 +1,14 @@
 {
   "name": "@mohsin-mi/iconpicker",
-  "version": "1.0.36",
+  "version": "1.0.37",
   "main": "lib/IconPicker.js",
   "files": [
     "lib/**/*"
   ],
   "scripts": {
-    "build": "babel src -d lib && cp -R src/index.css lib",
+    "build": "babel src -d lib && cp -R src/index.css lib && cp src/icons.js lib",
     "build:styles": "npx tailwindcss -i ./src/index.css -o ./lib/iconpicker.css",
-    "prepublishOnly": "npm run build && npm run build:styles"
+    "prepublishOnly": "npm i && npm run build && npm run build:styles"
   },
   "keywords": [
     "react",
