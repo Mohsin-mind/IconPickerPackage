@@ -1,6 +1,6 @@
 {
   "name": "@mohsin-mi/iconpicker",
-  "version": "1.0.37",
+  "version": "1.0.38",
   "main": "lib/IconPicker.js",
   "files": [
     "lib/**/*"
@@ -9,6 +9,10 @@
     "build": "babel src -d lib && cp -R src/index.css lib && cp src/icons.js lib",
     "build:styles": "npx tailwindcss -i ./src/index.css -o ./lib/iconpicker.css",
     "prepublishOnly": "npm i && npm run build && npm run build:styles"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mohsin-mind/IconPickerPackage.git"
   },
   "keywords": [
     "react",
