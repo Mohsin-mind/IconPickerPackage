@@ -12,8 +12,6 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 
 library.add(fab, fas, far);
 
-const IconsPerPage = 20;
-
 const IconPicker = ({
   icons = {},
   value = '',
@@ -26,6 +24,13 @@ const IconPicker = ({
   noSelectedPlaceholder,
   buttonStyle = `flex items-center justify-center h-[35px] w-[35px] rounded-l-[8px] border border-[#eaecf0]`,
   zIndexPopup = 50,
+  popupStyle = `bg-white border border-gray-300 shadow-lg rounded popup-container min-w-[367px]`,
+  gridColumns = 5,
+  gridRows = 3,
+  iconBgColor = `bg-gray-200`,
+  iconSelectedBgColor = `bg-blue-200`,
+  iconHeight = 65,
+  iconWidth = 65,
 }) => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [isPositionSet, setIsPositionSet] = useState(false);
@@ -37,6 +42,7 @@ const IconPicker = ({
 
   const buttonRef = useRef(null);
   const popupRef = useRef(null);
+  const IconsPerPage = gridColumns * gridRows;
   // Function to update the popup position based on button's position
   const updatePopupPosition = () => {
     if (!buttonRef?.current) {
@@ -169,14 +175,14 @@ const IconPicker = ({
       }
     }
   };
-
+  const classNames = (...classes) => classes.filter(Boolean).join(' ');
   // Portal popup rendering function
   const renderPopup = () => (
     <div
       ref={popupRef}
-      className={`absolute bg-white border border-gray-300 shadow-lg rounded popup-container min-w-[367px] ${
+      className={classNames(`absolute ${popupStyle} ${
         isPositionSet ? '' : 'invisible'
-      }`}
+      }`)}
       style={{
         top: `${popupPosition?.top}px`,
         left: `${popupPosition?.left}px`,
@@ -215,7 +221,7 @@ const IconPicker = ({
             </select>
           )}
         </div>
-        {iconsToDisplay.length > 0 && (
+        {iconsToDisplay?.length > 0 && (
           <div className='w-full flex justify-between items-center mb-2'>
             <div className='flex items-center gap-2'>
               <span className='border-gray-300 border-b w-8 text-right'>
@@ -247,22 +253,25 @@ const IconPicker = ({
         {iconsToDisplay?.length === 0 ? (
           <div className='text-gray-500'>No icons found</div>
         ) : (
-          <div className='grid grid-cols-5 grid-rows-4 gap-[2px] w-fit'>
+          <div className={`grid gap-[2px] w-fit`}
+            style={{gridTemplateColumns: `repeat(${gridColumns}, 1fr)`, gridTemplateRows: `repeat(${gridRows}, 1fr)`}}
+          >
             {iconsToDisplay.map((icon, index) => (
               <div
                 key={index}
-                className={`w-[65px] h-[65px] flex justify-center items-center cursor-pointer group overflow-hidden ${
-                  selectedIcons?.includes(icon) ? 'bg-blue-200' : 'bg-gray-200'
-                } hover:bg-gray-300`}
+                className={classNames(`flex justify-center items-center cursor-pointer group overflow-hidden ${
+                  selectedIcons?.includes(icon) ? iconSelectedBgColor : iconBgColor
+                } hover:bg-gray-300`)}
+                style={{height: `${iconHeight}px`, width: `${iconWidth}px`}}
                 onClick={() => handleIconClick(icon)}
               >
                 <FontAwesomeIcon
                   icon={icon}
-                  className={`text-[20px] transform transition duration-200 group-hover:text-gray-600 group-hover:scale-200 ${
+                  className={classNames(`text-[20px] transform transition duration-200 group-hover:text-gray-600 group-hover:scale-200 ${
                     selectedIcons?.includes(icon)
                       ? 'text-blue-800'
                       : 'text-gray-800'
-                  }`}
+                  }`)}
                 />
               </div>
             ))}

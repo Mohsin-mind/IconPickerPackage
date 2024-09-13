@@ -591,20 +591,12 @@ video {
   height: 35px;
 }
 
-.h-\[65px\] {
-  height: 65px;
-}
-
 .w-8 {
   width: 2rem;
 }
 
 .w-\[35px\] {
   width: 35px;
-}
-
-.w-\[65px\] {
-  width: 65px;
 }
 
 .w-fit {
@@ -626,14 +618,6 @@ video {
 
 .cursor-pointer {
   cursor: pointer;
-}
-
-.grid-cols-5 {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-}
-
-.grid-rows-4 {
-  grid-template-rows: repeat(4, minmax(0, 1fr));
 }
 
 .flex-col {
