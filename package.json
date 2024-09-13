@@ -1,6 +1,6 @@
 {
   "name": "@mohsin-mi/iconpicker",
-  "version": "1.0.38",
+  "version": "1.0.39",
   "main": "lib/IconPicker.js",
   "files": [
     "lib/**/*"

@@ -25,7 +25,7 @@ const IconPicker = ({
   isMulti = false,
   noSelectedPlaceholder,
   buttonStyle = `flex items-center justify-center h-[35px] w-[35px] rounded-l-[8px] border border-[#eaecf0]`,
-  zIndex = 50,
+  zIndexPopup = 50,
 }) => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [isPositionSet, setIsPositionSet] = useState(false);
@@ -180,7 +180,7 @@ const IconPicker = ({
       style={{
         top: `${popupPosition?.top}px`,
         left: `${popupPosition?.left}px`,
-        zIndex,
+        zIndex: zIndexPopup,
       }}
     >
       <div className='flex flex-col items-center p-4'>
