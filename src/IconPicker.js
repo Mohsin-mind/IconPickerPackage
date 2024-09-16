@@ -118,10 +118,10 @@ const IconPicker = ({
     if (!isPopupVisible) return;
 
     updatePopupPosition();
-    window.addEventListener('wheel', updatePopupPosition, { passive: true });
+    window.addEventListener('wheel', handleClosePopup, { passive: true });
 
     return () => {
-      window.removeEventListener('wheel', updatePopupPosition);
+      window.removeEventListener('wheel', handleClosePopup);
     };
   }, [isPopupVisible]);
 
