@@ -1,6 +1,6 @@
 {
   "name": "@mohsin-mi/iconpicker",
-  "version": "1.0.42",
+  "version": "1.0.43",
   "main": "lib/IconPicker.js",
   "files": [
     "lib/**/*"
@@ -17,7 +17,18 @@
   "keywords": [
     "react",
     "icon",
-    "picker"
+    "picker",
+    "fontawesome",
+    "react-icon",
+    "react-icon-picker",
+    "react-iconpicker",
+    "javascript",
+    "icons",
+    "react-icons",
+    "dynamic",
+    "icon button",
+    "library",
+    "icon-image"
   ],
   "author": "Mohsin Sunasara",
   "license": "MIT",
