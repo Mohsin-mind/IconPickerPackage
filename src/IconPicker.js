@@ -259,7 +259,8 @@ const IconPicker = ({
             {iconsToDisplay.map((icon, index) => (
               <div
                 key={index}
-                className={classNames(`flex justify-center items-center cursor-pointer group overflow-hidden ${
+                className={classNames(`flex justify-center items-center cursor-pointer group overflow-hidden rounded-[4px]
+                   hover:bg-gray-300 hover:shadow-[0_4px_15px_rgba(0,0,0,0.3)] hover:shadow-gray-500 hover:rounded-[10px] ${
                   selectedIcons?.includes(icon) ? iconSelectedBgColor : iconBgColor
                 } hover:bg-gray-300`)}
                 style={{height: `${iconHeight}px`, width: `${iconWidth}px`}}

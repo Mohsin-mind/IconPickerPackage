@@ -1,5 +1,7 @@
 # Usage Example.
 
+Note: This IconPicker uses Font Awesome 6.6.0.
+
 Install `IconPicker` package
 
 ```bash
