@@ -296,7 +296,7 @@ const IconPicker = ({
             selectedIcons[0] || noSelectedPlaceholder || 'arrow-up-from-bracket'
           }
           size='lg'
-          className='text-gray-800'
+          className={`${selectedIcons?.[0] ? 'text-gray-800' : 'text-gray-500'}`}
         />
       </button>
       {isPopupVisible && ReactDOM.createPortal(renderPopup(), document.body)}
